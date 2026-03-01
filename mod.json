@@ -1,7 +1,7 @@
 {
-	"geode": "5.2.0",
+	"geode": "4.10.2",
 	"gd": {
-		"win": "2.2081"
+		"win": "2.2074"
 	},
 	"id": "pololak.low-priority-discord",
 	"name": "Low Priority Discord",
