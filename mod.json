@@ -5,12 +5,13 @@
 	},
 	"id": "pololak.low-priority-discord",
 	"name": "Low Priority Discord",
-	"version": "v0.0.1",
+	"version": "v0.0.2",
 	"developer": "Pololak",
-	"description": "Special for [Ykbn] members.",
-	"dependencies": {
-		"geode.node-ids": ">=v1.20.0"
+	"description": "Automatically set Discord's processes to low priority.",
+	"links": {
+		"source": "https://github.com/Pololak/Low-Priority-Discord"
 	},
+	"tags": ["performance"],
 	"settings": {
 		"activate-mod": {
 			"type": "bool",
