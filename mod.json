@@ -1,11 +1,11 @@
 {
-	"geode": "5.2.0",
+	"geode": "5.10.1",
 	"gd": {
 		"win": "2.2081"
 	},
 	"id": "pololak.low-priority-discord",
 	"name": "Low Priority Discord",
-	"version": "v0.0.2",
+	"version": "v0.0.3",
 	"developer": "Pololak",
 	"description": "Automatically set Discord's processes to low priority.",
 	"links": {
@@ -13,9 +13,19 @@
 	},
 	"tags": ["performance"],
 	"settings": {
-		"activate-mod": {
+		"mod-enabled": {
 			"type": "bool",
-			"name": "Activate",
+			"name": "Enabled",
+			"default": true
+		},
+		"on-unminimize": {
+			"type": "bool",
+			"name": "On Unminimize",
+			"default": true
+		},
+		"on-reset-level": {
+			"type": "bool",
+			"name": "On Reset Level",
 			"default": true
 		}
 	}
