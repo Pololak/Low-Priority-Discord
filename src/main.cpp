@@ -3,6 +3,8 @@
 #include <TlHelp32.h>
 #include <string.h>
 #include <Geode/modify/AppDelegate.hpp>
+#include <Geode/modify/PlayLayer.hpp>
+#include <Geode/modify/PauseLayer.hpp>
 
 using namespace geode::prelude;
 
@@ -23,7 +25,7 @@ void updateDiscordPriority() {
                     if (cProcess) {
                         log::debug("DiscordPID: {}", entry.th32ProcessID);
                         if (GetPriorityClass(cProcess) != IDLE_PRIORITY_CLASS) {
-                            log::debug("Set lowest priority to discord.exe with PID {}", entry.th32ParentProcessID);
+                            log::debug("Set lowest priority to {} with PID {}", entry.szExeFile, entry.th32ParentProcessID);
                             SetPriorityClass(cProcess, IDLE_PRIORITY_CLASS);
                         }
                     }
@@ -41,7 +43,17 @@ class $modify(AppDelegate) {
     void applicationWillEnterForeground() {
         AppDelegate::applicationWillEnterForeground();
 
-        if (Mod::get()->getSettingValue<bool>("activate-mod")) {
+        if (Mod::get()->getSettingValue<bool>("mod-enabled") && Mod::get()->getSettingValue<bool>("on-unminimize")) {
+            updateDiscordPriority();
+        }
+    }
+};
+
+class $modify(PlayLayer) {
+    void resetLevel() {
+        PlayLayer::resetLevel();
+
+        if (Mod::get()->getSettingValue<bool>("mod-enabled") && Mod::get()->getSettingValue<bool>("on-reset-level")) {
             updateDiscordPriority();
         }
     }
